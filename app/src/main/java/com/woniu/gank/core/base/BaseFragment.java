@@ -1,5 +1,8 @@
 package com.woniu.gank.core.base;
 
+import com.woniu.gank.core.GankApplication;
+import com.woniu.gank.di.component.AppComponent;
+
 import me.yokeyword.fragmentation.SupportFragment;
 
 /**
@@ -12,4 +15,11 @@ import me.yokeyword.fragmentation.SupportFragment;
  */
 public class BaseFragment extends SupportFragment {
 
+    /**
+     * 获取AppComponent
+     * @return
+     */
+    protected AppComponent getAppComponent() {
+        return ((GankApplication) _mActivity.getApplication()).getAppComponent();
+    }
 }
