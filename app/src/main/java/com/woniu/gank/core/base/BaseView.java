@@ -18,4 +18,12 @@ package com.woniu.gank.core.base;
 
 public interface BaseView {
 
+    void showLoading();
+
+    void hideLoading();
+
+    void initView();
+
+    void showError();
+
 }

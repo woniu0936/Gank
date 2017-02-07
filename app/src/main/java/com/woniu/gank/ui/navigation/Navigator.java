@@ -1,4 +1,4 @@
-package com.woniu.gank.view.navigation;
+package com.woniu.gank.ui.navigation;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

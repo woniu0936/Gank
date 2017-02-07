@@ -5,7 +5,7 @@ import com.woniu.gank.data.api.ApiService;
 import com.woniu.gank.di.module.AppModule;
 import com.woniu.gank.di.module.ClientModule;
 import com.woniu.gank.di.module.ServiceModule;
-import com.woniu.gank.view.navigation.Navigator;
+import com.woniu.gank.ui.navigation.Navigator;
 
 import javax.inject.Singleton;
 

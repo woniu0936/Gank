@@ -12,7 +12,7 @@ public class AppConfig {
     /**
      * 标记是否输出debug信息
      */
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = true;
 
     /**
      * http

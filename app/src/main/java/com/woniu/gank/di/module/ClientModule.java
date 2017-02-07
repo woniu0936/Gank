@@ -4,8 +4,11 @@ import android.app.Application;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.woniu.gank.core.AppConfig;
 import com.woniu.gank.core.AppConfigHelper;
+import com.woniu.gank.data.AutoValueGsonAdapterFactory;
 import com.woniu.gank.data.http.NetworkInterceptor;
 
 import java.util.concurrent.TimeUnit;
@@ -48,10 +51,18 @@ public class ClientModule {
 
     @Singleton
     @Provides
-    Retrofit provideRetrofit(OkHttpClient client) {
+    Retrofit provideRetrofit(OkHttpClient client, Gson gson) {
         final Retrofit.Builder builder = new Retrofit.Builder();
-        return configRetrofit(builder, client);
+        return configRetrofit(builder, client, gson);
 
+    }
+
+    @Singleton
+    @Provides
+    Gson provideGson() {
+        return new GsonBuilder()
+                .registerTypeAdapterFactory(AutoValueGsonAdapterFactory.create())
+                .create();
     }
 
     @Singleton
@@ -67,7 +78,7 @@ public class ClientModule {
     }
 
     private OkHttpClient configClient(OkHttpClient.Builder builder, Cache cache, Interceptor interceptor) {
-        OkHttpClient.Builder okBuilder = builder.cache(null)
+        OkHttpClient.Builder okBuilder = builder
                 .retryOnConnectionFailure(true)
                 .connectTimeout(AppConfig.HTTP_CONNECT_TIMEOUT, TimeUnit.MILLISECONDS)
                 .readTimeout(AppConfig.HTTP_READ_TIMEOUT, TimeUnit.MILLISECONDS)
@@ -81,12 +92,12 @@ public class ClientModule {
         return okBuilder.build();
     }
 
-    private Retrofit configRetrofit(Retrofit.Builder builder, OkHttpClient client) {
-        return builder.
-                baseUrl(baseUrl)
+    private Retrofit configRetrofit(Retrofit.Builder builder, OkHttpClient client, Gson gson) {
+        return builder
+                .baseUrl(baseUrl)
                 .client(client)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//使用rxjava
-                .addConverterFactory(GsonConverterFactory.create())//使用Gson
+                .addConverterFactory(GsonConverterFactory.create(gson))//使用Gson
                 .build();
     }
 

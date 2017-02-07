@@ -3,7 +3,7 @@ package com.woniu.gank.di.component;
 import com.woniu.gank.di.ActivityScope;
 import com.woniu.gank.di.module.ActivityModule;
 import com.woniu.gank.di.module.MainModule;
-import com.woniu.gank.view.activity.MainActivity;
+import com.woniu.gank.ui.activity.MainActivity;
 
 import dagger.Component;
 
