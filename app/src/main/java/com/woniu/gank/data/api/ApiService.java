@@ -1,7 +1,6 @@
 package com.woniu.gank.data.api;
 
 import com.fernandocejas.frodo.annotation.RxLogObservable;
-import com.woniu.gank.data.bean.CommonBean;
 import com.woniu.gank.data.bean.GankBean;
 import com.woniu.gank.data.http.HttpResponse;
 
@@ -52,7 +51,7 @@ public interface ApiService {
 
     @RxLogObservable
     @GET("Android/{pageSize}/{pageNo}")
-    Observable<HttpResponse<List<CommonBean>>> getAndroid(@Path("pageSize") int pageSize, @Path("pageNo") int pageNo);
+    Observable<HttpResponse<List<GankBean>>> getAndroid(@Path("pageSize") int pageSize, @Path("pageNo") int pageNo);
 
     @RxLogObservable
     @GET("iOS/{pageSize}/{pageNo}")

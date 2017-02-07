@@ -15,7 +15,6 @@ import com.jakewharton.rxbinding.support.v7.widget.RxRecyclerView;
 import com.trello.rxlifecycle.android.FragmentEvent;
 import com.woniu.gank.R;
 import com.woniu.gank.core.base.RxBaseFragment;
-import com.woniu.gank.data.bean.CommonBean;
 import com.woniu.gank.data.bean.GankBean;
 import com.woniu.gank.di.component.DaggerAndroidComponent;
 import com.woniu.gank.di.module.AndroidModule;
@@ -125,7 +124,7 @@ public class AndroidFragment extends RxBaseFragment implements AndroidContract.V
     }
 
     @Override
-    public void showContent(List<CommonBean> list) {
+    public void showContent(List<GankBean> list) {
         if (mSwipeRefreshLayout.isRefreshing()) {
             mSwipeRefreshLayout.setRefreshing(false);
         }
@@ -133,7 +132,7 @@ public class AndroidFragment extends RxBaseFragment implements AndroidContract.V
     }
 
     @Override
-    public void showLoadMoreContent(List<CommonBean> list) {
+    public void showLoadMoreContent(List<GankBean> list) {
         mAdapter.addData(list);
     }
 

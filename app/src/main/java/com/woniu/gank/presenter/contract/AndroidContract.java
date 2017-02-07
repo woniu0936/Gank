@@ -2,7 +2,7 @@ package com.woniu.gank.presenter.contract;
 
 import com.woniu.gank.core.base.BasePresenter;
 import com.woniu.gank.core.base.BaseView;
-import com.woniu.gank.data.bean.CommonBean;
+import com.woniu.gank.data.bean.GankBean;
 
 import java.util.List;
 
@@ -19,9 +19,9 @@ public interface AndroidContract {
 
     interface View extends BaseView {
 
-        void showContent(List<CommonBean> list);
+        void showContent(List<GankBean> list);
 
-        void showLoadMoreContent(List<CommonBean> list);
+        void showLoadMoreContent(List<GankBean> list);
 
     }
 

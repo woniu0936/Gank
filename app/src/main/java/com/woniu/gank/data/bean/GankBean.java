@@ -1,5 +1,13 @@
 package com.woniu.gank.data.bean;
 
+import android.os.Parcelable;
+import android.support.annotation.Nullable;
+
+import com.google.auto.value.AutoValue;
+import com.google.gson.Gson;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.SerializedName;
+
 /**
  * @author woniu
  * @title GankBean
@@ -8,8 +16,8 @@ package com.woniu.gank.data.bean;
  * @date
  * @since 16/10/25 下午12:55
  */
-
-public class GankBean {
+@AutoValue
+public abstract class GankBean implements Parcelable {
     /**
      * _id : 5808f2a0421aa90e6f21b41e
      * createdAt : 2016-10-21T00:36:48.978Z
@@ -22,100 +30,41 @@ public class GankBean {
      * who : 邵辉Vista
      */
 
-    private String _id;
-    private String createdAt;
-    private String desc;
-    private String publishedAt;
-    private String source;
-    private String type;
-    private String url;
-    private boolean used;
-    private String who;
+    @SerializedName("_id")
+    public abstract String id();
 
-    public String get_id() {
-        return _id;
-    }
+    @Nullable
+    @SerializedName("createdAt")
+    public abstract String createAt();
 
-    public void set_id(String _id) {
-        this._id = _id;
-    }
+    @Nullable
+    @SerializedName("desc")
+    public abstract String desc();
 
-    public String getCreatedAt() {
-        return createdAt;
-    }
+    @Nullable
+    @SerializedName("publishedAt")
+    public abstract String publishedAt();
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
+    @Nullable
+    @SerializedName("source")
+    public abstract String source();
 
-    public String getDesc() {
-        return desc;
-    }
+    @Nullable
+    @SerializedName("type")
+    public abstract String type();
 
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
+    @Nullable
+    @SerializedName("url")
+    public abstract String url();
 
-    public String getPublishedAt() {
-        return publishedAt;
-    }
+    @SerializedName("used")
+    public abstract boolean used();
 
-    public void setPublishedAt(String publishedAt) {
-        this.publishedAt = publishedAt;
-    }
+    @Nullable
+    @SerializedName("who")
+    public abstract String who();
 
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public boolean isUsed() {
-        return used;
-    }
-
-    public void setUsed(boolean used) {
-        this.used = used;
-    }
-
-    public String getWho() {
-        return who;
-    }
-
-    public void setWho(String who) {
-        this.who = who;
-    }
-
-    @Override
-    public String toString() {
-        return "GankBean{" +
-                "_id='" + _id + '\'' +
-                ", createdAt='" + createdAt + '\'' +
-                ", desc='" + desc + '\'' +
-                ", publishedAt='" + publishedAt + '\'' +
-                ", source='" + source + '\'' +
-                ", type='" + type + '\'' +
-                ", url='" + url + '\'' +
-                ", used=" + used +
-                ", who='" + who + '\'' +
-                '}';
+    public static TypeAdapter<GankBean> typeAdapter(Gson gson) {
+        return new AutoValue_GankBean.GsonTypeAdapter(gson);
     }
 }

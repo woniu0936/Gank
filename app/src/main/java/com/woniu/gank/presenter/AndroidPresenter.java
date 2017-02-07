@@ -6,7 +6,7 @@ import com.woniu.gank.core.base.BaseView;
 import com.woniu.gank.core.rx.RxHelper;
 import com.woniu.gank.core.rx.RxSubscriber;
 import com.woniu.gank.data.api.ApiService;
-import com.woniu.gank.data.bean.CommonBean;
+import com.woniu.gank.data.bean.GankBean;
 import com.woniu.gank.presenter.contract.AndroidContract;
 import com.woniu.gank.ui.fragment.AndroidFragment;
 
@@ -87,7 +87,7 @@ public class AndroidPresenter implements AndroidContract.Presenter {
                 .compose(RxHelper.handleResult())
                 .compose(RxHelper.rxSchedulerHelper())
                 .compose(mFragment.bindToLifecycle())
-                .subscribe(new RxSubscriber<List<CommonBean>>() {
+                .subscribe(new RxSubscriber<List<GankBean>>() {
                     @Override
                     public void onCompleted() {
                         super.onCompleted();
@@ -95,7 +95,7 @@ public class AndroidPresenter implements AndroidContract.Presenter {
                     }
 
                     @Override
-                    public void onNext(List<CommonBean> list) {
+                    public void onNext(List<GankBean> list) {
                         super.onNext(list);
                         Log.d(TAG, list.toString());
                         mView.showContent(list);

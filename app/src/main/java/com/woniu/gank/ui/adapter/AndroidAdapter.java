@@ -2,7 +2,7 @@ package com.woniu.gank.ui.adapter;
 
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.woniu.gank.R;
-import com.woniu.gank.data.bean.CommonBean;
+import com.woniu.gank.data.bean.GankBean;
 
 /**
  * @author woniu
@@ -12,14 +12,14 @@ import com.woniu.gank.data.bean.CommonBean;
  * @date
  * @since 16/11/8 下午10:49
  */
-public class AndroidAdapter extends BaseAdapter<CommonBean, BaseViewHolder> {
+public class AndroidAdapter extends BaseAdapter<GankBean, BaseViewHolder> {
 
     public AndroidAdapter() {
         super(R.layout.item_android, null);
     }
 
     @Override
-    protected void convert(BaseViewHolder holder, CommonBean gankBean) {
+    protected void convert(BaseViewHolder holder, GankBean gankBean) {
         holder.setText(R.id.tv_title, gankBean.desc())
                 .setText(R.id.tv_author, gankBean.who())
                 .setText(R.id.tv_time, gankBean.createAt());
