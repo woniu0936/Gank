@@ -16,9 +16,7 @@
 
 package com.woniu.gank.core.base;
 
-public interface BasePresenter<T extends BaseView> {
-
-    void attachView(T view);
+public interface BasePresenter {
 
     void detachView();
 

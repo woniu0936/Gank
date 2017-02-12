@@ -15,6 +15,7 @@ import android.view.View;
 import com.woniu.gank.R;
 import com.woniu.gank.core.base.BaseActivity;
 import com.woniu.gank.ui.fragment.AndroidFragment;
+import com.woniu.gank.ui.fragment.IOSFragment;
 
 import me.yokeyword.fragmentation.SupportFragment;
 
@@ -22,7 +23,7 @@ public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final int ANDROID = 0;
-    public static final int SECOND = 1;
+    public static final int IOS = 1;
     public static final int THIRD = 2;
     public static final int FOURTH = 3;
 
@@ -58,12 +59,15 @@ public class MainActivity extends BaseActivity
     }
 
     public void initFragment(Bundle savedInstanceState) {
-        if (null == savedInstanceState){
+        if (null == savedInstanceState) {
             mFragments[ANDROID] = AndroidFragment.newInstance();
+            mFragments[IOS] = IOSFragment.newInstance();
             loadMultipleRootFragment(R.id.content_main, ANDROID,
-                    mFragments[ANDROID]);
+                    mFragments[ANDROID],
+                    mFragments[IOS]);
         } else {
             mFragments[ANDROID] = findFragment(AndroidFragment.class);
+            mFragments[IOS] = findFragment(IOSFragment.class);
         }
     }
 
@@ -112,7 +116,7 @@ public class MainActivity extends BaseActivity
         } else if (id == R.id.nav_android) {
             mFragments[ANDROID].popToChild(AndroidFragment.class, false);
         } else if (id == R.id.nav_ios) {
-
+            mFragments[IOS].popToChild(IOSFragment.class, false);
         } else if (id == R.id.nav_js) {
 
         } else if (id == R.id.nav_meizi) {

@@ -8,13 +8,13 @@ import java.util.List;
 
 /**
  * @author woniu
- * @title AndroidContract
+ * @title IOSContract
  * @description
  * @modifier
  * @date
- * @since 16/10/31 上午11:23
+ * @since 17/2/8 下午7:02
  */
-public interface AndroidContract {
+public interface IOSContract {
 
     interface View extends BaseView {
 
@@ -25,6 +25,6 @@ public interface AndroidContract {
     }
 
     interface Presenter extends BasePresenter {
-
+        void fetchDatas();
     }
 }

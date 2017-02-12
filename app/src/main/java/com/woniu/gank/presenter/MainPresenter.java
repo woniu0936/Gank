@@ -1,6 +1,5 @@
 package com.woniu.gank.presenter;
 
-import com.woniu.gank.core.base.BaseView;
 import com.woniu.gank.data.api.ApiService;
 import com.woniu.gank.presenter.contract.MainContract;
 
@@ -24,11 +23,6 @@ public class MainPresenter implements MainContract.Presenter {
         mApiService = apiService;
         mView = view;
 //        mView.setPresenter(this);
-    }
-
-    @Override
-    public void attachView(BaseView view) {
-
     }
 
     @Override

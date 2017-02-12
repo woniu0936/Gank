@@ -25,7 +25,7 @@ import rx.subjects.BehaviorSubject;
  * @since 16/10/26 下午12:47
  */
 
-public class RxBaseFragment extends BaseFragment implements LifecycleProvider<FragmentEvent> {
+public abstract class RxBaseFragment extends BaseFragment implements LifecycleProvider<FragmentEvent> {
 
     private final BehaviorSubject<FragmentEvent> lifecycleSubject = BehaviorSubject.create();
 

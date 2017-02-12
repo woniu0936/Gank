@@ -24,6 +24,16 @@ public class Paginator {
         this.pageSize = pageSize;
     }
 
+    public int firstPage() {
+        this.pageNo = 1;
+        return this.pageNo;
+    }
+
+    public int nextPage() {
+        this.pageNo++;
+        return this.pageNo;
+    }
+
     public int getPageNo() {
         return pageNo;
     }

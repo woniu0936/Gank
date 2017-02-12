@@ -16,7 +16,7 @@ import me.yokeyword.fragmentation.SupportFragment;
  * @date
  * @since 16/9/13 上午11:09
  */
-public class BaseFragment extends SupportFragment {
+public abstract class BaseFragment extends SupportFragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,7 +36,5 @@ public class BaseFragment extends SupportFragment {
     /**
      * 注入依赖的组件
      */
-    protected void inject() {
-
-    }
+    protected abstract void inject();
 }

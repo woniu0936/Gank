@@ -18,18 +18,24 @@ import rx.Subscriber;
 @RxLogSubscriber
 public abstract class RxSubscriber<T> extends Subscriber<T> {
 
-    @Override
-    public void onCompleted() {
+    public abstract void doOnCompleted();
 
+    public abstract void doOnNext(T t);
+
+    public abstract void doOnError(Throwable e);
+
+    @Override
+    final public void onCompleted() {
+        doOnCompleted();
     }
 
     @Override
-    public void onNext(T t) {
-
+    final public void onNext(T t) {
+        doOnNext(t);
     }
 
     @Override
-    public void onError(Throwable e) {
+    final public void onError(Throwable e) {
         if (e instanceof SocketTimeoutException) {
 //            Toast.makeText(context, "网络中断，请检查您的网络状态", Toast.LENGTH_SHORT).show();
         } else if (e instanceof ConnectException) {
@@ -38,6 +44,7 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
 //            Toast.makeText(context, "错误" + e.getMessage(), Toast.LENGTH_SHORT).show();
 //            Log.i("tag", "error----------->" + e.toString());
         }
+        doOnError(e);
     }
 
     @Override
