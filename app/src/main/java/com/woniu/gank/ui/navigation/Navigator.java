@@ -1,5 +1,7 @@
 package com.woniu.gank.ui.navigation;
 
+import android.util.Log;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -16,5 +18,9 @@ public class Navigator {
 
     @Inject
     public Navigator() {
+    }
+
+    public void log(int position) {
+        Log.d("Navigator", "test inject provide " + position);
     }
 }

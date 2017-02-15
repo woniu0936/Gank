@@ -53,9 +53,11 @@ public class AndroidFragment extends RxBaseFragment implements AndroidContract.V
 
     @Inject
     AndroidPresenter mPresenter;
+    @Inject
+    AndroidAdapter mAdapter;
 
     private LinearLayoutManager mLayoutManager;
-    private AndroidAdapter mAdapter;
+    //    private AndroidAdapter mAdapter;
     private int lastVisibleItemPosition;
 
     public static AndroidFragment newInstance() {
@@ -89,7 +91,7 @@ public class AndroidFragment extends RxBaseFragment implements AndroidContract.V
 
         mLayoutManager = new LinearLayoutManager(_mActivity);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new AndroidAdapter();
+//        mAdapter = new AndroidAdapter();
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setHasFixedSize(true);
         mPresenter.fetchDatas();
