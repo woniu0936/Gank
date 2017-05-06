@@ -1,2 +1,2 @@
 # Gank
-非官方Gank，集成了mvp+okhttp+retrofit+dagger2+rxjava
+非官方Gank，集成了mvp+okhttp+retrofit+dagger2+rxjava+autoValue
